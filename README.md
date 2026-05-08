@@ -22,3 +22,4 @@ A React + Vite frontend landing page for Lens, built from the pitch deck content
 - The page is intentionally built as a polished brand landing page, using the core messaging from the pitch deck.
 - No backend functionality is included.
 # LENS
+# LENS
