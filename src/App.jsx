@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 const logo = new URL('../lens.jpg', import.meta.url).href;
 
 const processSteps = [
@@ -33,11 +35,32 @@ const team = [
   { name: 'Fauziya Abdullahi', role: 'Secretary' },
 ];
 
+const heroHeadline = 'Clarity that cuts through noise.';
+
 function App() {
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="page-shell">
       <header className="hero-section">
-        <div className="hero-copy">
+        <div className="hero-copy reveal-on-scroll">
           <div className="site-brand">
             <img src={logo} alt="Lens logo" className="site-logo" />
             <div>
@@ -45,12 +68,22 @@ function App() {
             </div>
           </div>
           <p className="eyebrow">Strategic clarity for brands that want to stand out</p>
-          <h1>Clarity that cuts through noise.</h1>
+          <h1 className="animated-title">
+            {heroHeadline.split('').map((char, index) => (
+              <span
+                key={`${char}-${index}`}
+                className="animated-letter"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </h1>
           <p className="hero-text">
             Lens helps businesses define who they are, design how they appear, and dominate the market through
             psychology-led positioning and identity systems.
           </p>
-          <div className="hero-actions">
+          <div className="hero-actions reveal-on-scroll">
             <a href="#contact" className="button primary">Start your brand clarity journey</a>
             <a href="#approach" className="button secondary">Explore our process</a>
           </div>
@@ -58,19 +91,19 @@ function App() {
             8 businesses joined the waitlist in days — proof that clarity is what growing brands need most.
           </p>
         </div>
-        <div className="hero-visual">
-          <div className="hero-card">
+        <div className="hero-visual reveal-on-scroll">
+          <div className="hero-card reveal-on-scroll">
             <span>Problem</span>
             <p>Strong products lose traction because markets are crowded and messaging is unclear.</p>
           </div>
-          <div className="hero-card accent">
+          <div className="hero-card accent reveal-on-scroll">
             <span>Lens solution</span>
             <p>Strategic positioning, differentiated identity, and activation systems that make brands visible.</p>
           </div>
         </div>
       </header>
 
-      <section className="section" id="problem">
+      <section className="section reveal-on-scroll" id="problem">
         <div className="section-grid">
           <div>
             <p className="section-label">The challenge</p>
@@ -82,7 +115,7 @@ function App() {
           </div>
           <div className="stats-grid">
             {stats.map((item) => (
-              <div key={item.label} className="stat-card">
+              <div key={item.label} className="stat-card reveal-on-scroll">
                 <span className="stat-value">{item.value}</span>
                 <p>{item.label}</p>
               </div>
@@ -91,8 +124,8 @@ function App() {
         </div>
       </section>
 
-      <section className="section section-alt" id="approach">
-        <div className="section-intro">
+      <section className="section section-alt reveal-on-scroll" id="approach">
+        <div className="section-intro reveal-on-scroll">
           <p className="section-label">Our approach</p>
           <h2>Clarity-first branding with measurable momentum.</h2>
           <p>
@@ -102,7 +135,7 @@ function App() {
         </div>
         <div className="process-grid">
           {processSteps.map((step) => (
-            <article key={step.title} className="process-card">
+            <article key={step.title} className="process-card reveal-on-scroll">
               <h3>{step.title}</h3>
               <p>{step.description}</p>
             </article>
@@ -110,7 +143,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section" id="traction">
+      <section className="section reveal-on-scroll" id="traction">
         <div className="section-grid">
           <div>
             <p className="section-label">Early traction</p>
@@ -120,7 +153,7 @@ function App() {
               market need for better brand clarity and strategic differentiation.
             </p>
           </div>
-          <div className="clients-card">
+          <div className="clients-card reveal-on-scroll">
             <h3>Trusted by growing brands</h3>
             <div className="client-list">
               {clients.map((client) => (
@@ -131,8 +164,8 @@ function App() {
         </div>
       </section>
 
-      <section className="section section-alt" id="why-us">
-        <div className="section-intro">
+      <section className="section section-alt reveal-on-scroll" id="why-us">
+        <div className="section-intro reveal-on-scroll">
           <p className="section-label">Why Lens</p>
           <h2>We are not just designers or marketers.</h2>
           <p>
@@ -141,23 +174,23 @@ function App() {
           </p>
         </div>
         <div className="feature-grid">
-          <div className="feature-card">
+          <div className="feature-card reveal-on-scroll">
             <h3>Positioning first</h3>
             <p>Customers understand your value immediately, so your brand becomes the obvious choice.</p>
           </div>
-          <div className="feature-card">
+          <div className="feature-card reveal-on-scroll">
             <h3>Identity that resonates</h3>
             <p>Design systems that reflect who you are and help you stand out in crowded markets.</p>
           </div>
-          <div className="feature-card">
+          <div className="feature-card reveal-on-scroll">
             <h3>Growth with purpose</h3>
             <p>Marketing systems built around your unique story and the audiences most likely to engage.</p>
           </div>
         </div>
       </section>
 
-      <section className="section" id="team">
-        <div className="section-intro">
+      <section className="section reveal-on-scroll" id="team">
+        <div className="section-intro reveal-on-scroll">
           <p className="section-label">Leadership</p>
           <h2>Experienced strategists and creatives.</h2>
           <p>
@@ -167,7 +200,7 @@ function App() {
         </div>
         <div className="team-grid">
           {team.map((member) => (
-            <article key={member.name} className="team-card">
+            <article key={member.name} className="team-card reveal-on-scroll">
               <h3>{member.name}</h3>
               <p>{member.role}</p>
             </article>
@@ -175,7 +208,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section section-cta" id="contact">
+      <section className="section section-cta reveal-on-scroll" id="contact">
         <div>
           <p className="section-label">Ready for clarity?</p>
           <h2>Launch your brand with purpose and momentum.</h2>
@@ -183,7 +216,9 @@ function App() {
             Lens is built for businesses that want to come out of the noise with a strong position, a distinctive brand,
             and a plan for sustainable growth.
           </p>
-          <a href="https://form.typeform.com/to/INRHtNez" target="_blank" rel="noopener noreferrer" className="button primary">Get Started</a>
+          <div className="hero-actions reveal-on-scroll">
+            <a href="https://form.typeform.com/to/INRHtNez" target="_blank" rel="noopener noreferrer" className="button primary">Get Started</a>
+          </div>
         </div>
       </section>
     </div>
