@@ -29,10 +29,10 @@ const stats = [
 const clients = ['Horizon', 'Hylpandua', 'MyArteLab', 'King Empire', 'Gifted', 'Safe Space', 'SurePlug', 'Trump Concept'];
 
 const team = [
-  { name: 'Favour David', role: 'Founder, Lead Brand Positioning Specialist' },
-  { name: 'Ambrosse Godwin', role: 'Co-founder, Lead Differentiated Identity Designer' },
-  { name: 'Rahab David', role: 'Graphic Designer' },
-  { name: 'Fauziya Abdullahi', role: 'Secretary' },
+  { name: 'Abdullahi Fauziya', role: 'Founder, Lead Brand Positioning Specialist' },
+  { name: 'Godwin Ambrosse', role: 'Co-founder, Lead Differentiated Identity Designer' },
+  { name: 'David Rahab', role: 'Graphic Designer' },
+  { name: 'David Favour', role: 'Secretary' },
 ];
 
 const heroHeadline = 'Clarity that cuts through noise.';
