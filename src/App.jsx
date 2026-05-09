@@ -72,7 +72,7 @@ function App() {
             {heroHeadline.split('').map((char, index) => (
               <span
                 key={`${char}-${index}`}
-                className="animated-letter"
+                className={`animated-letter${char === ' ' ? ' word-space' : ''}`}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {char}
