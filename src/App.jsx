@@ -30,7 +30,7 @@ const clients = ['Horizon', 'Hylpandua', 'MyArteLab', 'King Empire', 'Gifted', '
 
 const team = [
   { name: 'Abdullahi Fauziya', role: 'Founder, Lead Brand Positioning Specialist' },
-  { name: 'Godwin Ambrosse', role: 'Co-founder, Lead Differentiated Identity Designer' },
+  { name: 'Godwin Ambrose', role: 'Co-founder, Lead Differentiated Identity Designer' },
   { name: 'David Rahab', role: 'Graphic Designer' },
   { name: 'David Favour', role: 'Secretary' },
 ];
