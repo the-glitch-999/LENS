@@ -175,15 +175,15 @@ function App() {
         </div>
         <div className="feature-grid">
           <div className="feature-card reveal-on-scroll">
-            <h3>Positioning first</h3>
+            <h3>DEFINE</h3>
             <p>Customers understand your value immediately, so your brand becomes the obvious choice.</p>
           </div>
           <div className="feature-card reveal-on-scroll">
-            <h3>Identity that resonates</h3>
+            <h3>DESIGN</h3>
             <p>Design systems that reflect who you are and help you stand out in crowded markets.</p>
           </div>
           <div className="feature-card reveal-on-scroll">
-            <h3>Growth with purpose</h3>
+            <h3>DOMINATE</h3>
             <p>Marketing systems built around your unique story and the audiences most likely to engage.</p>
           </div>
         </div>
